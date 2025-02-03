@@ -1,0 +1,10 @@
+{
+    "name": "GachiSnailMusic",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/Harmonyasha/GachiSnailMusic",
+    "description": "Adds several gachi music to immortal snail or ability to set your own.",
+    "dependencies": [
+        "no00ob-LCSoundTool-1.5.1",
+        "AmesBoys-ImmortalSnail-0.7.5"
+    ]
+}
