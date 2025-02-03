@@ -15,7 +15,6 @@ using BepInEx.Logging;
 using GachiSnailMusic;
 using HarmonyLib;
 using LCSoundTool;
-using LethalConfig;
 using UnityEngine;
 
 namespace GachiSnailMusic
@@ -44,7 +43,6 @@ namespace GachiSnailMusic
         {
             while (true)
             {
-
              if (Chainloader.PluginInfos.ContainsKey("LCSoundTool"))
                 {
                     LoggerInstance.LogInfo("LCSoundTool found!");
@@ -63,18 +61,17 @@ namespace GachiSnailMusic
                 PluginInstance = this;
             }
             LoggerInstance = PluginInstance.Logger;
-            var bundle = GachiSnailMusic.Utils.Bundle.LoadBundle("gachisnail");
-            Sprite aVeryCoolIconAsset = bundle.LoadAsset<Sprite>("kent");
-            try
-            {
-                LethalConfigManager.SetModIcon(aVeryCoolIconAsset);
-            }
-            catch { }
+
             await WaitForLcSound();
+      /*      if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("ainavt.lc.lethalconfig"))
+            {
+                LethalConfigIcon.Start();
+            }*/
             LoggerInstance.LogInfo("Plugin SoThisIsImmortalSnail loaded successfully.");
           
             configVolume = Config.Bind("Volume", "MusicVolume", .3f, "Volume of the music. Must be between 0 and 1.");
             LoggerInstance.LogInfo("configVolume");
+
 
             //  Plugin.configPlayWhenLookingAtSnail = base.Config.Bind<bool>("Looking Mechanic", "PlayWhenLookingAtSnail", true, "Play the music only when the player is looking at the snail. Everything below this only works if this is set to true.");
             // Plugin.LoggerInstance.LogInfo("configPlayWhenLookingAtSnail");
